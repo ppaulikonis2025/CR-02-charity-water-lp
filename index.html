@@ -1,47 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water – Campus Action</title>
+  <meta name="description" content="Bring clean water to every person. Join the campus movement: learn, fundraise, and take action." />
+
+  <style>
+    :root{
+      --cw-yellow:#FFD74B;
+      --cw-black:#111111;
+      --cw-white:#FFFFFF;
+      --cw-blue:#1E90FF;
+      --text:#2B2B2B;
+      --muted:#6B7280;
+      --radius:16px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Arial,sans-serif;color:var(--text);background:var(--cw-white);}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:24px}
+    .grid{display:grid;gap:24px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:999px;font-weight:700;text-decoration:none}
+
+    /* Nav */
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--cw-black)}
+    .brand .dot{width:18px;height:18px;border-radius:50%;background:var(--cw-yellow)}
+    .nav a{margin-left:16px;color:var(--text);text-decoration:none;font-weight:600}
+    .nav a.cta{background:var(--cw-yellow);color:#111;padding:8px 14px;border-radius:999px}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#fff,#faf7ea)}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding-block:40px}
+    h1{font-size:clamp(2rem,4.5vw,3rem);margin:10px 0;color:var(--cw-black)}
+    .lead{font-size:1.1rem;color:#333;max-width:52ch}
+    .cta-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn.primary{background:var(--cw-yellow);color:#111;border:2px solid #111}
+    .btn.secondary{background:#111;color:#fff;border:2px solid #111}
+    .hero .media img{width:100%;border-radius:var(--radius);box-shadow:0 8px 20px rgba(0,0,0,.1)}
+
+    /* Stats */
+    .stats{background:#111;color:#fff;padding-block:30px}
+    .stats .items{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .stat{text-align:center;background:rgba(255,255,255,.05);border-radius:14px;padding:18px}
+    .stat .num{font-size:2rem;font-weight:800}
+    .stat .label{color:#ddd}
+
+    /* Story */
+    .story{padding-block:50px}
+    .story .wrap{grid-template-columns:1fr 1fr}
+    .story .card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:24px}
+
+    /* CTA wide */
+    .cta-wide{background:var(--cw-yellow);padding:40px 24px;border-block:2px solid #111;text-align:center}
+    .cta-wide .btn{background:#111;color:#fff;border:2px solid #111}
+
+    /* FAQ */
+    .faq{padding-block:36px}
+    details{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:14px 16px;margin-top:12px}
+    summary{font-weight:700;cursor:pointer}
+
+    /* Footer */
+    footer{background:#0c0c0c;color:#cbd5e1;padding:40px 24px;text-align:center}
+
+    @media (max-width:920px){
+      .hero .wrap,.story .wrap{grid-template-columns:1fr}
+      .stats .items{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:560px){
+      .stats .items{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span><span>charity: water</span></div>
+      <nav>
+        <a href="#story">Why water?</a>
+        <a href="#get-involved">Get involved</a>
+        <a href="#donate" class="cta">Donate</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <h1>Turn your next semester into lives changed.</h1>
+        <p class="lead">771 million people still lack access to clean and safe drinking water. Your campus can help end the water crisis through creative fundraising, learning, and advocacy.</p>
+        <div class="cta-row">
+          <a id="donate" class="btn primary" href="#get-involved">Start a campus fundraiser</a>
+          <a class="btn secondary" href="#story">Learn why water first</a>
         </div>
-    </section>
+      </div>
+      <div class="media">
+        <!-- 👇 this line now uses your file name -->
+        <img src="img/charity-water.png" alt="Students leading a water fundraiser">
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container items">
+      <div class="stat"><div class="num">771M</div><div class="label">without clean water</div></div>
+      <div class="stat"><div class="num">&gt;$40</div><div class="label">gives water to one person*</div></div>
+      <div class="stat"><div class="num">200K+</div><div class="label">projects funded</div></div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section id="story" class="story">
+    <div class="container grid wrap">
+      <div class="card">
+        <h2>Why water first?</h2>
+        <p>Clean water changes everything: health, education, and income. When a community gets access to clean water, women and girls spend less time walking long distances to collect water and more time in school or earning income.</p>
+      </div>
+      <div class="card">
+        <h2>What your campus can do</h2>
+        <ul>
+          <li><strong>Host</strong> a run, concert, or challenge.</li>
+          <li><strong>Celebrate</strong> birthdays by donating the day.</li>
+          <li><strong>Create</strong> a class or club campaign.</li>
+          <li><strong>Share</strong> stories on social to inspire others.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wide CTA -->
+  <section id="get-involved" class="cta-wide">
+    <h2>Ready to lead a fundraiser?</h2>
+    <p>Kick off a campus page in minutes. Set a goal, tell your story, and invite friends.</p>
+    <a class="btn" href="#">Create your campus page</a>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq container">
+    <h2>FAQ</h2>
+    <details><summary>Where do the funds go?</summary><p>Funds support clean water projects with vetted local partners.</p></details>
+    <details><summary>Can we track impact?</summary><p>Yes, projects are mapped and reported for transparency.</p></details>
+    <details><summary>How do we use our own images?</summary><p>Upload JPG/PNG to the <code>img</code> folder and update the <code>src</code> in HTML.</p></details>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>charity: water – Campus Action</strong></p>
+    <p>Built for a digital marketing project. This is not an official charity: water website.</p>
+    <p>© <span id="year"></span> Paige Paulikonis</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
